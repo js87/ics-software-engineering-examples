@@ -22,10 +22,11 @@
   </target>
 
   <!-- Basic properties for this system. -->
-  <property name="system.name" value="restlet-hellowworld" />
-  <property name="system.main.class" value="edu.hawaii.restlet.helloworld.server.HelloWorldServer" />
+  <property name="system.name" value="restlet-dateservice" />
+  <property name="system.server.main.class" value="edu.hawaii.dateservice.server.DateServer" />
+  <property name="system.client.main.class" value="edu.hawaii.dateservice.client.DateClient" />
   <property name="majorVersionNumber" value="1" />
-  <property name="minorVersionNumber" value="1" />
+  <property name="minorVersionNumber" value="0" />
   <tstamp>
     <format property="DAYSTAMP" pattern="Mdd" />
     <format property="TSTAMP" pattern="HH:mm:ss" />
@@ -61,8 +62,8 @@
     <pathelement path="${build.classes.dir}" />
   </path>
 
-  <target name="run" depends="compile">
-    <java classpathref="run.classpath" classname="${system.main.class}" fork="true" />
+  <target name="run-server" depends="compile">
+    <java classpathref="run.classpath" classname="${system.server.main.class}" fork="true" />
   </target>
 
 </project>
