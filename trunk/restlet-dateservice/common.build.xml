@@ -48,8 +48,14 @@
     <delete dir="${build.dir}" />
   </target>
 
-  <target name="reallyclean" depends="clean" description="Delete build/ directory, top-level jar files, and lib/ directory.">
+  <target name="reallyclean" depends="clean" description="Delete build/ and bin/ directories, top-level jar files, and lib/ directory.">
     <delete dir="${lib.dir}" />
+    <delete dir="${basedir}/bin" />
+    <delete>
+      <fileset dir="${basedir}">
+        <include name="*.jar"/>
+      </fileset>
+    </delete>
   </target>
 
   <target name="convertLineEndings" description="Makes line endings compatible with host platform.">
