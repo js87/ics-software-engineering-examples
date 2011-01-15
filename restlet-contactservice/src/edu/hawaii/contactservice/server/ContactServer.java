@@ -56,7 +56,6 @@ public class ContactServer extends Application {
       // Create a router restlet.
       Router router = new Router(getContext());
       // Attach the resources to the router.
-      //router.attach("/contacts", ContactsResource.class);
       router.attach("/contact/{uniqueID}", ContactResource.class);
       // Return the root router
       return router;

@@ -7,7 +7,7 @@ import edu.hawaii.contactservice.common.contact.Contact;
 
 /**
  * Holds an in-memory representation of all Contacts present in this service. 
- * There is no persistency, so the Contacts disappear when this service ceases execution.
+ * There is no persistent storage, so the Contacts disappear when this service ceases execution.
  * This collection needs to be thread-safe. 
  * @author Philip Johnson
  */
