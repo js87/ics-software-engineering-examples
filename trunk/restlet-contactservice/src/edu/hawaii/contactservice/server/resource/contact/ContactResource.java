@@ -20,26 +20,29 @@ public class ContactResource extends ServerResource {
   
   /**
    * Returns the Contact instance requested by the URL. 
-   * @return The XML representation of the contact, or CLIENT_ERROR_NOT_FOUND if the 
+   * @return The XML representation of the contact, or CLIENT_ERROR_NOT_ACCEPTABLE if the 
    * unique ID is not present.
    * @throws Exception If problems occur making the representation. Shouldn't occur in 
    * practice but if it does, Restlet will set the Status code. 
    */
   @Get
   public Representation getContact() throws Exception {
+    // Create an empty XML representation.
     DomRepresentation result = new DomRepresentation();
-    // Get the requested Contact ID from the URL.
+    // Get the contact's uniqueID from the URL.
     String uniqueID = (String)this.getRequestAttributes().get("uniqueID");
     // Look for it in the Contacts database.
     Contact contact = Contacts.getInstance().getContact(uniqueID);
     if (contact == null) {
-      // It was not found, so set the status to indicate this.
+      // The requested contact was not found, so set the Status to indicate this.
       getResponse().setStatus(Status.CLIENT_ERROR_NOT_ACCEPTABLE);
     } 
     else {
-      // It was found, so add the Contact's XML representation to the response.
+      // The requested contact was found, so add the Contact's XML representation to the response.
       result.setDocument(contact.toXml());
+      // Status code defaults to 200 if we don't set it.
       }
+    // Return the representation.  The Status code tells the client if the representation is valid.
     return result;
   }
   
@@ -51,9 +54,13 @@ public class ContactResource extends ServerResource {
    */
   @Put
   public Representation putContact(Representation representation) throws Exception {
+    // Get the XML representation of the Contact.
     DomRepresentation domRepresentation = new DomRepresentation(representation);
+    // Convert the XML representation to the Java representation.
     Contact contact = new Contact(domRepresentation.getDocument());
+    // Add the Contact to our repository.
     Contacts.getInstance().addContact(contact);
+    // No need to return a representation to the client.
     return null;
   }
   

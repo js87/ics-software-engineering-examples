@@ -45,13 +45,13 @@ public class TestContactResource {
   @Test
   public void testAddContact() throws Exception {
     // Construct the URL to test.
-    String uniqueID = "test1";
+    String uniqueID = "DS";
     String testUrl = String.format("http://localhost:%s/contactserver/contact/%s", testPort,
         uniqueID);
     ClientResource client = new ClientResource(testUrl);
     
     // Construct the payload: an XML representation of a Contact.
-    Contact contact = new Contact("First", "Last", "Info", uniqueID);
+    Contact contact = new Contact("Dan", "Suthers", "Professor", uniqueID);
     DomRepresentation representation = new DomRepresentation();
     representation.setDocument(contact.toXml());
     

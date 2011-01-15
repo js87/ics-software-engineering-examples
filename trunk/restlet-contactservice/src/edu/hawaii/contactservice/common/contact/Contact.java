@@ -95,6 +95,15 @@ public class Contact {
   
   /**
    * Returns this contact as an XML Document instance. 
+   * For example:
+   * <pre>
+   * <contact>
+   *   <first-name>Philip</first-name>
+   *   <last-name>Johnson</last-name>
+   *   <info>Professor</info>
+   *   <unique-ID>pmj</unique-ID>
+   * </contact>
+   * </pre>
    * @return This contact as XML.
    * @throws Exception If problems occur creating the XML.
    */
