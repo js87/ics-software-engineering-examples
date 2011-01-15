@@ -18,14 +18,15 @@
     <!-- Copy the class files for the "server" only. -->
      <copy todir="${tmp.dir}">
        <fileset dir="${basedir}/build/classes/">
-        <include name="**/server/**"/>
+         <include name="**/server/**"/>
+         <include name="**/common/**"/>
        </fileset>
      </copy>
     
     <!-- Copy over the required libraries. --> 
     <unjar dest="${tmp.dir}">
       <fileset dir="${lib.dir}/restlet">
-        <include name="org.restlet.jar" />
+        <include name="*.jar" />
       </fileset>
     </unjar>
 
@@ -44,14 +45,15 @@
     <!-- Copy the class files for the "client" only. -->
     <copy todir="${tmp.dir}">
       <fileset dir="${basedir}/build/classes/">
-       <include name="**/client/**"/>
+        <include name="**/client/**"/>
+        <include name="**/common/**"/>
       </fileset>
     </copy>
     
     <!-- Copy over the required libraries. --> 
     <unjar dest="${tmp.dir}">
       <fileset dir="${lib.dir}/restlet">
-        <include name="org.restlet.jar" />
+        <include name="*.jar" />
       </fileset>
     </unjar>
 
