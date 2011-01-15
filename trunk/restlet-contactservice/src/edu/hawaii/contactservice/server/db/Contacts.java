@@ -63,7 +63,7 @@ public class Contacts {
    * Return a snapshot of the collection at the point in time that this was called.
    * @return A collection of Contact instances.  
    */
-  public Collection<Contact> getContacts () {
+  public synchronized Collection<Contact> getContacts () {
     return uniqueID2Contact.values();
   }
 }
