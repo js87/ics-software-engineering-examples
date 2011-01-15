@@ -19,13 +19,13 @@ public class Contact {
   /** The contact's unique ID. */
   private String uniqueID;
   /** The unique ID element name. */
-  private final String uniqueIDElementName = "unique-ID";
+  private static final String uniqueIDElementName = "unique-ID";
   /** The first name element name. */
-  private final String firstNameElementName = "first-name";
+  private static final String firstNameElementName = "first-name";
   /** The last name element name. */
-  private final String lastNameElementName = "last-name";
+  private static final String lastNameElementName = "last-name";
   /** The info element name. */
-  private final String infoElementName = "info";
+  private static final String infoElementName = "info";
   
   /**
    * Creates a Contact instance given its field values as strings. 
@@ -85,6 +85,7 @@ public class Contact {
   /**
    * Returns the hashCode of the uniqueID field, which is the only field used to determine
    * equality among Contact objects. 
+   * @return The hashcode.
    */
   @Override 
   public int hashCode() {
