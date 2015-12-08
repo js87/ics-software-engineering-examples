@@ -1,0 +1,1 @@
+Provides examples of various technologies used in the University of Hawaii software engineering curriculum.
